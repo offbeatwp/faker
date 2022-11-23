@@ -55,9 +55,9 @@ final class DummyHelper
      */
     public static function generatePosts(string $type, int $amount): void
     {
-        foreach (get_object_taxonomies($type) as $taxonomy) {
-
-        }
+//        foreach (get_object_taxonomies($type) as $taxonomy) {
+//
+//        }
 
         $modelClass = offbeat('post-type')->getModelByPostType($type);
         if (!$modelClass) {
