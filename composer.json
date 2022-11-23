@@ -13,5 +13,8 @@
             "OffbeatWP\\Faker\\": "src"
         }
     },
-    "require": {}
+    "require": {
+        "offbeatwp/framework": "dev-master",
+        "offbeatwp/acf": "dev-master"
+    }
 }
