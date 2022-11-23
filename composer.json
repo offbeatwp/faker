@@ -1,0 +1,17 @@
+{
+    "name": "offbeatwp/offbeat-faker",
+    "description": "Service to create quick posts",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chris Schrijver",
+            "email": "chris@raow.nl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "OffbeatWP\\Faker\\": "src"
+        }
+    },
+    "require": {}
+}
