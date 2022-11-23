@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75c0afea102ca6775851a8bac45cee4a",
+    "content-hash": "8dbf743503232bf46dffb852965e6b3b",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -618,12 +618,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/offbeatwp/framework.git",
-                "reference": "a5323599801deeac6ad4af39bce8ad83924c67a7"
+                "reference": "cead4190dc879cee43bd2dffc62b57a48fa8a6f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/offbeatwp/framework/zipball/a5323599801deeac6ad4af39bce8ad83924c67a7",
-                "reference": "a5323599801deeac6ad4af39bce8ad83924c67a7",
+                "url": "https://api.github.com/repos/offbeatwp/framework/zipball/cead4190dc879cee43bd2dffc62b57a48fa8a6f7",
+                "reference": "cead4190dc879cee43bd2dffc62b57a48fa8a6f7",
                 "shasum": ""
             },
             "require": {
@@ -657,7 +657,7 @@
                 "issues": "https://github.com/offbeatwp/framework/issues",
                 "source": "https://github.com/offbeatwp/framework/tree/master"
             },
-            "time": "2022-11-16T14:52:26+00:00"
+            "time": "2022-11-23T13:50:08+00:00"
         },
         {
             "name": "php-di/invoker",

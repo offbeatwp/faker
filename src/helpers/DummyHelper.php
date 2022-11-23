@@ -3,7 +3,9 @@
 namespace OffbeatWP\Faker\Helpers;
 
 use OffbeatWP\Content\Post\PostModel;
+use OffbeatWP\Content\Taxonomy\TermModel;
 use OffbeatWP\Faker\Events\BeforeDummyPostSaveEvent;
+use OffbeatWP\Helpers\ArrayHelper;
 use UnexpectedValueException;
 
 final class DummyHelper
@@ -55,13 +57,17 @@ final class DummyHelper
      */
     public static function generatePosts(string $type, int $amount): void
     {
-//        foreach (get_object_taxonomies($type) as $taxonomy) {
-//
-//        }
-
         $modelClass = offbeat('post-type')->getModelByPostType($type);
         if (!$modelClass) {
             throw new UnexpectedValueException("No model found for '". $type. "'");
+        }
+
+        $taxonomies = get_object_taxonomies($type);
+        $taxIds = [];
+        foreach ($taxonomies as $taxonomy) {
+            /** @var class-string<TermModel> $model */
+            $taxClass = offbeat('taxonomy')->getModelByTaxonomy($taxonomy);
+            $taxIds[$taxonomy] = $taxClass::query()->ids();
         }
 
         for ($i = 0; $i < $amount; $i++)
@@ -70,6 +76,10 @@ final class DummyHelper
             $model = new $modelClass();
             $model->setTitle(self::generateSentence());
             $model->setContent(self::generateText(10));
+
+            foreach ($taxonomies as $taxonomy) {
+                $model->setTerms(ArrayHelper::randomValues($taxIds[$taxonomy], 1), $taxonomy);
+            }
 
             /** @var BeforeDummyPostSaveEvent $event */
             $event = apply_filters('offbeatwp/posts/dummy/before_save', new BeforeDummyPostSaveEvent($model));

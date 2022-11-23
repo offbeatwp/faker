@@ -5,7 +5,7 @@ use OffbeatWP\Faker\Helpers\DummyHelper;
 use OffbeatWP\Services\AbstractService;
 use WP_REST_Server;
 
-final class Service extends AbstractService {
+final class FakerService extends AbstractService {
     public function register()
     {
         $path = 'generate-dummy';
@@ -34,10 +34,10 @@ final class Service extends AbstractService {
         add_action('manage_posts_extra_tablenav', static function (string $which) use ($path, $isAllowed) {
             if ($which === 'bottom' && $isAllowed) {
                 $type = $_GET['post_type'] ?? 'post';
-                $url = get_site_url(null, '/wp-json/offbeatwp/' . $path) . '?amount=5&type=' . $type;
+                $url = get_site_url(null, '/wp-json/offbeatwp/' . $path) . '?amount=10&type=' . $type;
 
                 echo "&nbsp<div class='float-end' style='margin-left:1rem'>
-                    <a href='$url' type='submit' class='button'>Generate 5 dummy posts</a>
+                    <a href='$url' type='submit' class='button'>Generate 10 dummy posts</a>
                 </div> ";
             }
         });
